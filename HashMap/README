@@ -1,0 +1,48 @@
+README
+
+Description:
+I have provided the source code for 2 HashMap classes in the appropriate '*.h' files. I have included source code C++ file named 'test.cpp' that performs a few tests using the HashMap member functions for both of my HashMap implementations. I have also included the executable version named 'test'.
+
+Due to the vague nature of the challenge specifications, I have created 2 programs that implement slightly different variations of a HashMap. The first - HashMap_v1p.h - does not implement collision resolution, whereas the second -  HashMap_v2p.h - does via separate chaining. However, both of these implementations do not allow for different types of values to be stored in the same instance of a HashMap (e.g. <string, [string, int, float, etc.]>) since these programs were written in C++, a statically typed language. However, a dynamically typed language like Python, could enable this type of 'mixed value' HashMap. I unfortunately did not have time to implement this type of HashMap.
+
+
+
+Installation:
+1) Download the zip folder and unzip it.
+2) You can attempt to run the executable file first. Within a terminal, type the following:
+
+	./test
+
+This will output the results of my tests detailed in 'test.cpp'.
+3) If it fails to execute, attempt to compile it by making the file by typing:
+
+	make
+
+4) If the Makefile runs without issues, repeat step 2. Otherwise, attempt to compile test.cpp using a C++ compiler like g++ or clang.
+5) By default, './test' will only test HashMap_v1p.h. To test HashMap_v1p.h, you can also type:
+
+	./test 1
+
+To test HashMap_v2p.h, type:
+
+	./test 2
+
+
+
+Class usage:
+HashMap<key type, value type> hash_map_name(unsigned long hash_map_size);
+E.g. HashMap<string, int> hash_map_test0(10);
+For hash_map_size = 0, the constructor changes it to the default value of 1.
+
+
+
+Member functions:
+		constructor(size):	Return an instance of the class with pre-allocated space for the given number of objects (see 'Class usage').
+boolean set(key, &value):	Store the given key/value pair in the hash map. Returns a boolean value indicating success/failure.
+value* 	get(key): 			Return the value associated with the given key, or null if none is set.
+value* 	remove(key):		Delete the value associated with the given key, returning the value or null if empty.
+float	load(): 			Return the load factor (`(items in hash map)/(size of hash map)`).
+void 	printHashMap():		Pretty print the contents of the hash map instance.
+
+Note on arbitrary data object references:
+Values must be defined before passing their addresses (i.e. 'pointers' or '&v') to the HashMap.set function.
